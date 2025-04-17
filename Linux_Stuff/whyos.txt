@@ -1,0 +1,55 @@
+Why os?
+-> to enable users and applications to interact with Hardware
+-> linux, macos, windows popular choices
+-> kernel is the core of the os
+-> kernel is the interface between hardware and software
+-> linux: open source, secure, stable, flexible
+
+Components of Linux OS: (1)
+-> kernel: core of the os, manages hardware and software resources
+-> system libraries: provide functions for applications to interact with the kernel
+-> system utilities: programs that perform specific tasks
+-> shell: command line interface to interact with the os
+
+Components of linux machine:
+-> user appLications
+-> (1)
+-> Hardware
+
+Linux Distributions
+-> ubuntu: user-friendly, popular for beginners(by Canonical)
+-> debian: stable, secure, popular for servers(by Debian Project)
+-> fedora: cutting-edge, popular for developers(by Red Hat)
+-> centos: stable, popular for servers(by Red Hat)
+
+Install linux on windows
+-> run: wsl --install
+
+Package managers
+what are they? 
+-> tools to install, update, and remove software packages
+-> examples: apt, yum, dnf, pacman
+-> apt: used in debian-based distributions (ubuntu, mint), out of box
+
+Binaries
+-> Commands(admin and non admin)
+- sbin directory: for admin,shortvut for /usr/sbin
+- bin directory: for non admin, shortcut for /usr/bin
+- part of /usr directory
+
+-> /srv: config files related to web servers
+-> /opt: common location for all 3rd party dependencies
+-> /mnt: mount point for volumes
+-> /var: to store logfiles(of web server), 3rd paty libs etc
+-> /home: user home directory, new user folder created here.
+-> /data: data that can be shared with others
+-> /proc: virtual file system for processes and sys info, temp folder
+-> /tmp: for tempf files
+-> /root: home directory for root user, for other users: /home/<username>
+-> /run: for runtime data of processes, like pid files
+-> /etc: config files for the system, like network, user, and group info - to modify system
+ex: passwd- to change password of any user, hosts: local dns caching
+
+-> if binary present in PATH, we can execute it directly without giving full path to the binary
+ex: ls(/usr/bin/ls)
+

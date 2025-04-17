@@ -1,0 +1,81 @@
+User management
+User management in Linux is a critical aspect of system administration, as it involves creating, modifying, 
+and deleting user accounts, managing user permissions, and ensuring the security of the system. 
+
+#90% of production system run on linux
+
+Creating users and groups
+- To create a new user, use the `useradd` command followed by the username. 
+  For example, to create a user named "john", you would run:
+  ```bash
+  sudo useradd john
+  ```
+  #switch user: sudo su - john, switch back to root: exit
+  #to check the user in use: whoami
+  # to save user details, use: sudo adduser john -> creates a home directory as well.
+  # to check user creation, access: sudo vim /etc/passwd
+
+- To set a password for the new user, use the `passwd` command followed by the username.
+  For example, to set a password for the user "john", you would run:
+  ```bash
+  sudo passwd john
+  ```
+  # to check passwd creation, access: sudo vim /etc/shadow
+  ### can't decrypt the password(one way encryption) or restore the password. ###
+
+- To create a new user with a home directory and set a password in one command, you can use:
+  ```bash       
+    sudo useradd -m -s /bin/bash john
+    sudo passwd john
+    ```
+
+- To create a new group, use the `groupadd` command followed by the group name.
+  For example, to create a group named "developers", you would run:
+  ```bash
+  sudo groupadd developers
+  ```
+  # to check group creation, access: sudo vim /etc/group
+
+- To add a user to a group, use the `usermod` command with the `-aG` option.    
+  For example, to add the user "john" to the "developers" group, you would run:
+  ```bash
+  sudo usermod -aG developers john
+  ```   
+
+- to delete user
+  ```bash
+  sudo userdel john
+  ```
+  # to delete user and home directory
+  ```bash
+  sudo userdel -r john
+  ```
+  # to delete group
+  ```bash
+  sudo groupdel developers #will only delete the group not the user
+  ```
+  # to delete group and all users in the group
+  ```bash       
+    sudo groupdel -r developers
+    ```
+
+#diff btw useradd and adduser
+-useradd: low level command, creates a user account, no details, quick way, 
+useful in scripts(no prompts will be shown)
+-adduser: high level command, creates a user account, prompts for details, creates a home directory
+
+#ssh(secure shell)
+- SSH is a protocol used to securely connect to remote systems over a network.
+- linux server has a process running sshd
+- personal computer has ssh client, which installs ssh
+- SSH uses public key cryptography to authenticate users and encrypt data.
+- Popular choices for ssh client, windows: git bash, mac- terminal(iterm2-out of box)
+
+one way to login:
+ssh <username>@<ip address>
+enter password
+
+for this : modify vim /etc/ssh/sshd_config.d/<file>.conf
+set PasswordAuthentication yes
+
+if this is no: then login through pem file

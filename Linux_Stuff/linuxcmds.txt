@@ -1,0 +1,23 @@
+ls: list files in a directory
+cd: change directory
+pwd: print working directory
+mkdir: make directory
+rmdir: remove directory or use: rm-rf
+rm: remove files or directories
+cp: copy files or directories, cp <file1> <file2>:file1 copied to file2
+#cp -r <dir1> <dir2>: dir1 copied to dir2
+#cp -i <file1> <file2>: prompt before overwriting
+#cp -u <file1> <file2>: copy only if file1 is newer than file2
+#cp -v <file1> <file2>: verbose output
+mv: move or rename files or directories, mv <file1> <file2>
+touch: create an empty file
+vim: create and write to a file
+#If file permission starts with a 'd': it's a directory
+#If file permission starts with a '-': it's a file
+cat: print file contents
+#cat -n <file>: print file contents with line numbers
+tac: print file contents in reverse order
+head -n tst.txt: print first n lines of a file
+tail -n tst.txt: print last n lines of a file
+echo <text> > <file>: write text to a file, overwrite
+echo <text> >> <file>: append <text> at the end of the file as a new line, no overwriting

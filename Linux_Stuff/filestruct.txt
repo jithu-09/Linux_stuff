@@ -1,0 +1,10 @@
+root@ubuntu/dev:/#
+-> root: superuser, has full access to the system, here is the user that is logged in(default user)
+- with vms, another user(linux or ubuntu) will be created on top of root)
+-> ubuntu: hostname
+-> /: current working directory(also root directory or parent directory)
+-> #: prompt symbol for root user
+// -> $: prompt symbol for normal user
+$, #: seperator
+
+->ls -ltr: list files in long format, sorted by time, reverse order
