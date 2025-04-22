@@ -1,0 +1,52 @@
+sudo useradd -u 1285 -d /var/www/john -m john
+
+sudo: Runs the command with superuser privileges.
+useradd: Command to add a new user.
+-u 1285: Specifies the UID for the user.
+-d /var/www/john: Specifies the home directory for the user.
+-m: Creates the home directory if it does not exist.
+john: The username to be created.
+
+
+id john- to checxk user details
+ls -ld /var/www/john- to check home dir
+
+create user with a non interactive shell- sudo useradd ammar -s /sbin/nologin
+can also use -s /bin/false
+
+create user without home dir- sudo useradd -M ravi
+create user with expiration date: sudo useradd -e 2024-04-15 Kirsty
+
+find /home/usersdata -type f -user ravi -exec cp --parents {} /news \;
+The \; at the end of the command is necessary to terminate the -exec option. This command will find all files owned by user ravi in the /home/usersdata directory and copy them to the /news directory while preserving the directory structure.
+
+to remove direct SSH root login on a server: 
+- login to the server: ssh tony@172.16.238.10
+- edit this file- sudo vi /etc/ssh/sshd_config
+  -> Permitrootlogin no(usually set too yes)
+- restart sshd- sudo systemctl restart sshd
+
+
+to create a compressed archive of a directory:
+tar -czvf anita.tar.gz /data/anita
+
+move to a specific location in the server:
+sudo mv /path/to/the/archive /destination/path
+ ->if outside server:
+   scp anita.tar.gz username@storage_server:/home
+
+to grant permission for very user to execute a script:
+sudo chmod a+rx <script.sh>
+
+to replace something in a text file , use "sed":
+- sudo sed -i 's/Sample/Software/g' /root/nautilus.xml
+# replaces all "sample" with "software
+sed: The stream editor for filtering and transforming text.
+-i: Edit the file in place.
+'s/Sample/Software/g': The substitution command where s stands for substitute, Sample is the string to be replaced, Software is the replacement string, and g stands for global replacement (all occurrences in the file).
+
+Modify crontab access to users:
+echo "jim" | sudo tee /etc/cron.allow -> allow
+echo "jerome" | sudo tee /etc/cron.deny -> deny
+
+if files not present create them.
