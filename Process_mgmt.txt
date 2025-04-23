@@ -1,0 +1,26 @@
+Process management as a linux admin:
+- view Processes
+- Kill, stop, resume Processes
+- prioritize Processes
+
+view: 
+-ps -ef, doesn't show the memory utilization
+-ps aux(shows mem util), to get line number => ps aux | nl
+-to get word count => pa aux | wc -l
+
+kill a Process:
+- first ps aux | grep <processname> then do kill <PID>( forcefully delete: kill -9 <PID>)
+- to filter out the query line(i.e the first cmd used to search the process)
+  . ps aux | grep <processname> | grep -v grep
+  . kill -3 <PID> : get thread dumps of a process(especially java processes)
+  . kill -STOP <PID>: to stop a process, kill -CONT <PID> to continue the stopped process 
+
+Set priority for a process:
+- renice -n 10 -p <PID> : less priority if number is positive
+- renice -n -5 -p <PID> : more priority if number is negative
+# cpu assumes the process that runs for a longer time in it should be given more priority
+
+Services: special kind of processes, run in background, come up automatically during boot time of server
+- systemctl list-units --type=service: to list all services
+- systemctl status <service>: to check the status of a service
+- systemctl start/stop <service>: to start/stop a service
