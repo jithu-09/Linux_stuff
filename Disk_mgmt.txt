@@ -1,0 +1,16 @@
+-Extra storage added to the system should be mounted at a particular mount point
+# - mount point: a directory in the filesystem where the extra storage is attached
+# - mount: attach the extra storage to the mount point
+
+- by default the extra storage is of block storage type: should be formatted to ext4 or xfs
+# - to check the filesystem type: df -T
+# - to check the mount point and disk space: df -h
+
+-lsblk: to check the block devices to the instance
+# xvda: root volume( / ), divided into 4 partitions - xvda1, [xvda14, xvda15, xvda16 - used by /boot]
+to find out about root volume: df -h / , ls -ltr /
+
+-fdisk: to check the disk space of the filesystem
+-xvdf: extra storage, cant be used directly(block storage), should be formatted and mounted
+ how? like this: mkfs -t ext4(format) /dev/xvdf(block storage)
+# - mount /dev/xvdf /mnt/extra_storage(or where you app is logging): mount the extra storage to the mount point

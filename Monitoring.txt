@@ -1,0 +1,25 @@
+# cpu: nproc, htop  
+  memory: htop, free -h  
+  disk:df -h, du -sh   
+  network
+
+# general flow:
+linux server -> connected to prometheus(scraps data through nodeexporter or other endpoint, stored in timeseries db) -> alertmanager(scraps data from prometheus) -> sends alerts to slack or email
+-> sends data to grafana -> can create dashboards to visualize the data
+
+top: real time monitoring, cpu and mem util as well
+- ps aux is not real time, it is a snapshot of the processes at that time
+- htop: interactive process viewer, more user friendly than top
+
+vmstat: virtual memory statistics, shows the memory utilization of the system, tells about free memory
+
+iostat: input/output statistics, shows the disk utilization of the system
+
+top cant be used in script, rather use free -m: m for megabytes
+free -h: human readable format
+
+nproc: number of processors
+
+df -h: disk free space
+du -sh <dir>: disk usage of a directory, <dir> not mandatory
+  just du -sh: shows the disk usage of the current directory
